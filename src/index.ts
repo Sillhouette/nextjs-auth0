@@ -17,6 +17,7 @@ import {
 import { _initAuth } from './init';
 import { setIsUsingNamedExports, setIsUsingOwnInstance } from './utils/instance-check';
 import { clientGetter } from './auth0-session/client/node-client';
+import { NewSessionFromRefreshToken } from './session/new-session-from-refresh-token';
 
 const genId = () => crypto.randomBytes(16).toString('hex');
 
@@ -55,6 +56,8 @@ export const initAuth0: InitAuth0 = (params) => {
 };
 
 export const getSession: GetSession = (...args) => getInstance().getSession(...args);
+export const newSessionFromRefreshToken: NewSessionFromRefreshToken = (refreshToken, ...args) =>
+  getInstance().newSessionFromRefreshToken(refreshToken, ...args);
 export const updateSession: UpdateSession = (...args) => getInstance().updateSession(...args);
 export const getAccessToken: GetAccessToken = (...args) => getInstance().getAccessToken(...args);
 export const touchSession: TouchSession = (...args) => getInstance().touchSession(...args);

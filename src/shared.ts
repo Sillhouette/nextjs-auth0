@@ -12,6 +12,7 @@ import { WithApiAuthRequired, WithPageAuthRequired } from './helpers';
 import { ConfigParameters } from './config';
 import { WithMiddlewareAuthRequired } from './helpers/with-middleware-auth-required';
 import version from './version';
+import { NewSessionFromRefreshToken } from './session/new-session-from-refresh-token';
 
 export const telemetry = { name: 'nextjs-auth0', version };
 
@@ -25,6 +26,11 @@ export const telemetry = { name: 'nextjs-auth0', version };
  * @category Server
  */
 export interface Auth0Server {
+  /**
+   * Create session from refresh token
+   */
+  newSessionFromRefreshToken: NewSessionFromRefreshToken;
+
   /**
    * Session getter.
    */
